@@ -1,0 +1,13 @@
+body {
+  background-color: #f4f6f9;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.card {
+  border-radius: .3rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+input, button {
+  border-radius: 0.5rem !important;
+}
