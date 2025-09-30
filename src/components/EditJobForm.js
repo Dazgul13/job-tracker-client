@@ -129,7 +129,7 @@ export default function EditJobForm({ jobId }) {
           value={status}
           onChange={(e) => setStatus(e.target.value)}
         >
-          <option value=disabled hidden>
+          <option value= "" disabled hidden>
             Choose status
           </option>
           <option value="application submitted">Application Submitted</option>
