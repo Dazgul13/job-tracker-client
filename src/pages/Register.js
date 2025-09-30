@@ -22,7 +22,7 @@ export default function Register() {
       });
 
       // If successful, redirect to login (or auto-login if token is returned)
-      console.log("Registration successful:", res.data);
+      console.log("Registration successful! You can now Log in");
       navigate("/login");
     } catch (err) {
       console.error(err);
