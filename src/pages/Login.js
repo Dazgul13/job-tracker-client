@@ -67,7 +67,7 @@ export default function Login() {
 		      </form>
 
 		      <div className="mt-3 text-center">
-		        <button className="btn btn-link text-success" onClick={() => Login}>
+		        <button className="btn btn-link text-success" onClick={() => navigate("/register")}>
 		          Need an account?
 		        </button>
 		      </div>
