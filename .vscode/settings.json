@@ -1,2 +1,7 @@
 {
+    "terminal.integrated.automationProfile.windows": {
+
+    },
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.integrated.env.windows": {}
 }
