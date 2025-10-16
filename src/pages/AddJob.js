@@ -16,11 +16,32 @@ export default function AddJob(){
   }, [])
 
   return(
-    <div id="add-job" className="mx-auto my-5 px-2">
-      <h1 className="text-center">Add Job</h1>
-      <AddJobForm />
-      <div className="d-flex justify-content-end">
-        <NavLink to="/" className="btn btn-sm btn-dark mb-3">Go Back</NavLink>
+    <div id="add-job" className="container py-4">
+      <div className="page-container fade-in">
+        <div className="text-center mb-4">
+          <h1 className="display-5 fw-bold text-white mb-3">
+            <i className="bi bi-plus-circle-fill me-3"></i>
+            Add New Job Application
+          </h1>
+          <p className="lead text-white-50">Track your next career opportunity</p>
+        </div>
+        
+        <div className="row justify-content-center">
+          <div className="col-lg-8">
+            <div className="card">
+              <div className="card-body p-4">
+                <AddJobForm />
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="text-center mt-4">
+          <NavLink to="/" className="btn btn-outline-light">
+            <i className="bi bi-arrow-left me-2"></i>
+            Back to Dashboard
+          </NavLink>
+        </div>
       </div>
     </div>
   )

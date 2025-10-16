@@ -2,8 +2,13 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css';
 import {UserProvider} from './context/UserContext';
+import { ThemeProvider } from './context/ThemeContext';
 import api from './api';
 import { useParams } from 'react-router-dom';
+
+//Components
+import Navigation from './components/Navigation';
+import FloatingThemeToggle from './components/FloatingThemeToggle';
 
 //Routes
 import Home from './pages/Home';
@@ -49,18 +54,22 @@ function App() {
 
   return (
     //React JSX Fragments - empty opening and closing tags
-    <UserProvider value={{ token, setNewToken, clearToken, isAuthenticated }}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          {/* AddJob and EditJob routes */}
-          <Route path="/addJob" element={<AddJob />} />
-          <Route path="/editJob/:id" element={<EditJobWrapper />} />
-        </Routes>
-      </Router>
-    </UserProvider>
+    <ThemeProvider>
+      <UserProvider value={{ token, setNewToken, clearToken, isAuthenticated }}>
+        <Router>
+          <Navigation />
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            {/* AddJob and EditJob routes */}
+            <Route path="/addJob" element={<AddJob />} />
+            <Route path="/editJob/:id" element={<EditJobWrapper />} />
+          </Routes>
+          <FloatingThemeToggle />
+        </Router>
+      </UserProvider>
+    </ThemeProvider>
     );
 
 }

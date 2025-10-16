@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from "../api";
+import { showSuccess, showError } from '../services/notificationService';
 
 export default function AddJobForm() {
 
@@ -37,11 +38,13 @@ export default function AddJobForm() {
             setStatus("");
             setNotes("");
 
-            setIsLoading(false);
-
+            showSuccess(`Job application for ${company} added successfully!`);
             navigate("/")
         }catch(error){
             console.error("Failed to add job:", error);
+            showError("Failed to add job application. Please try again.");
+        } finally {
+            setIsLoading(false);
         }
     }
 
@@ -112,7 +115,19 @@ export default function AddJobForm() {
                </label>
 
 
-               <button className="btn btn-success" disabled={!isFormValid || isLoading}>{isLoading ? "Saving..." : "Save"}</button>
+               <button className="btn btn-success" disabled={!isFormValid || isLoading}>
+                   {isLoading ? (
+                       <>
+                           <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                           Saving...
+                       </>
+                   ) : (
+                       <>
+                           <i className="bi bi-plus-circle me-2"></i>
+                           Save Job
+                       </>
+                   )}
+               </button>
            </form>
            )
 }

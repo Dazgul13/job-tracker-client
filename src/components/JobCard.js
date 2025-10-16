@@ -21,14 +21,15 @@ export default function JobCard({ job }) {
   return (
     <div className="d-flex justify-content-between align-items-center">
       <div>
-        <h4 className="fw-bolder">{job.title}</h4>
-        <h5>{job.company}</h5>
-        <h6 className="text-muted">{job.location}</h6>
+        <h4 className="fw-bolder job-title">{job.title}</h4>
+        <h5 className="job-company">{job.company}</h5>
+        <h6 className="job-location">{job.location}</h6>
         <span className={badgeColor(job.status)}>{job.status}</span>
-        <span className="d-block mt-3">Notes: {job.notes}</span>
+        <span className="d-block mt-3 text-themed-secondary">Notes: {job.notes}</span>
       </div>
 
       <NavLink to={`/editJob/${job._id}`} className="btn btn-sm btn-success">
+        <i className="bi bi-pencil-fill me-1"></i>
         Edit
       </NavLink>
     </div>
